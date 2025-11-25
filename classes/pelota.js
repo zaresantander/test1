@@ -10,16 +10,22 @@ class pelota {
         this.velx = random(-5, 5);
         this.vely = random(-5, 5);
 
-        this.nuevoColor = color(random(10, 50), random(50, 150), random(50,75), 100);
+        let colores = [
+            color(255, 255, 0, 120),   
+            color(255, 150, 0, 120),   
+            color(255, 120, 200, 120)  
+        ];
+
+        this.nuevoColor = random(colores);
     }
     
     actualizar() {
         if(this.posx > width - this.rad || this.posx < this.rad){
-        this.velx *= -1;
+            this.velx *= -1;
         }
 
         if(this.posy > height - this.rad || this.posy < this.rad){
-        this.velx *= -1;
+            this.vely *= -1;     
         }
 
         this.posx += this.velx;
@@ -29,9 +35,8 @@ class pelota {
 
     visualizar() {
         fill(this.nuevoColor);
-        stroke("#efa54bff");
+        stroke(255, 240);
         strokeWeight(5);
         circle(this.posx, this.posy, this.diam);
-
     }
 }
